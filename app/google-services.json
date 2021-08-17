@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "12144042240",
+    "firebase_url": "https://todolist-4094c-default-rtdb.firebaseio.com",
+    "project_id": "todolist-4094c",
+    "storage_bucket": "todolist-4094c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12144042240:android:494401a6a1b3ed2b2193e5",
+        "android_client_info": {
+          "package_name": "com.raccoon.todolist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12144042240-ia5qeuspq3l2ef9j2lpvvs77pfg4bigf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUhozsBowyvObIW9i7ZsSrSu3Ltwj1_R4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12144042240-ia5qeuspq3l2ef9j2lpvvs77pfg4bigf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

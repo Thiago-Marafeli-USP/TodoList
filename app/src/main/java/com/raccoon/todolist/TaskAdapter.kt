@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DatabaseReference
 import kotlinx.android.synthetic.main.task_item.view.*
 
 class TaskAdapter (
     private val taskList: MutableList<Task>
     ) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+    private var database: DatabaseReference? = null
 
     class TaskViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
@@ -33,10 +36,23 @@ class TaskAdapter (
     }
 
     fun delCheckedTasks(){
+        for (task in taskList){
+            if(task.isChecked){
+                database?.child(task.name)?.removeValue()
+            }
+        }
         taskList.removeAll { task ->
             task.isChecked
         }
         notifyDataSetChanged()
+    }
+
+    fun setDataBase(db: DatabaseReference){
+        database = db
+    }
+
+    fun getTaskList(): MutableList<Task>{
+        return taskList
     }
 
     private fun toggleStrikeThrough(tvTaskItem: TextView, isChecked: Boolean){
@@ -60,6 +76,7 @@ class TaskAdapter (
             cbTaskItem.setOnCheckedChangeListener { _, isChecked ->
                 toggleStrikeThrough(tvTaskItem, isChecked)
                 curTask.isChecked = !curTask.isChecked
+
             }
         }
     }
