@@ -72,11 +72,11 @@ class TaskAdapter (
             
             // If an item is (not) checked, the text will be (un)strikedthrough
             toggleStrikeThrough(tvTaskItem, curTask.isChecked)
-            
-            cbTaskItem.setOnCheckedChangeListener { _, isChecked ->
-                toggleStrikeThrough(tvTaskItem, isChecked)
+
+            cbTaskItem.setOnClickListener {
                 database?.child(curTask.name)?.child("checked")?.setValue(!curTask.isChecked)
                 curTask.isChecked = !curTask.isChecked
+                toggleStrikeThrough(tvTaskItem, curTask.isChecked)
             }
         }
     }
