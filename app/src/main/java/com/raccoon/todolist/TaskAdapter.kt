@@ -75,8 +75,8 @@ class TaskAdapter (
             
             cbTaskItem.setOnCheckedChangeListener { _, isChecked ->
                 toggleStrikeThrough(tvTaskItem, isChecked)
+                database?.child(curTask.name)?.child("checked")?.setValue(!curTask.isChecked)
                 curTask.isChecked = !curTask.isChecked
-
             }
         }
     }
