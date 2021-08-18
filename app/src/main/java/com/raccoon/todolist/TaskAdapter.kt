@@ -2,13 +2,10 @@ package com.raccoon.todolist
 
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DatabaseReference
 import kotlinx.android.synthetic.main.task_item.view.*
 
@@ -49,10 +46,6 @@ class TaskAdapter (
 
     fun setDataBase(db: DatabaseReference){
         database = db
-    }
-
-    fun getTaskList(): MutableList<Task>{
-        return taskList
     }
 
     private fun toggleStrikeThrough(tvTaskItem: TextView, isChecked: Boolean){

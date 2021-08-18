@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val children = snapshot.children
                 children.forEach {
-                    val map = it.getValue() as HashMap<String, Any>
+                    val map = it.value as HashMap<*, *>
                     val nome: String = map["name"] as String
                     val checked: Boolean = map["checked"] as Boolean
-                    val task: Task = Task(nome, checked)
+                    val task = Task(nome, checked)
 
                     taskAdapter.addTask(task)
                 }
